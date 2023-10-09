@@ -1,0 +1,53 @@
+@document url("about:preferences") {
+
+  /* Hide application icons */
+  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .typeContainer .typeIcon {
+    display: none !important;
+  }
+
+  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .typeContainer .typeDescription {
+    margin-inline-start: 10px !important;
+  }
+
+  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .actionContainer .actionIcon {
+    display: none !important;
+  }
+
+  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .actionContainer .actionDescription {
+    margin-inline-start: 10px !important;
+  }
+
+  #label-box image {
+    display: none !important;
+  }
+
+  #label-box label {
+    margin-inline-start: 10px !important;
+  }
+
+  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .actionsMenuContainer .actionsMenu .in-menulist .menu-iconic-left {
+    display: none !important;
+  }
+
+  /* Hide search engines favicons */
+  #preferences-root #preferences-body #preferences-stack #mainPrefPane #defaultEngineGroup #defaultEngine .in-menulist .menuitem-iconic.searchengine-menuitem.menuitem-with-favicon .menu-iconic-left {
+    display: none !important;
+  }
+
+  /* Hide download folder icon */
+  #preferences-root #preferences-body #preferences-stack #mainPrefPane #downloadsGroup #saveWhere #downloadFolder {
+    background-image: none !important;
+  }
+
+  /* Hide "More from Mozilla" */
+  #preferences-root #preferences-body #preferences-stack #categories #category-more-from-mozilla {
+    display: none !important;
+  }
+
+  /* Hide help button */
+  #preferences-root #preferences-body #preferences-stack #helpButton {
+    display: none !important;
+  }
+
+}
+

@@ -1,0 +1,128 @@
+{
+	"policies": {
+
+		"Bookmarks": [
+			{
+				"Placement": "toolbar",
+				"Title": "Gmail",
+				"URL": "https://mail.google.com/"
+			},
+			{
+				"Folder": "Google",
+				"Placement": "toolbar",
+				"Title": "Google Account",
+				"URL": "https://accounts.google.com"
+			},
+			{
+				"Folder": "Google",
+				"Placement": "toolbar",
+				"Title": "Google Calendar",
+				"URL": "https://calendar.google.com"
+			},
+			{
+				"Folder": "Google",
+				"Placement": "toolbar",
+				"Title": "Google Maps",
+				"URL": "https://maps.google.com"
+			},
+			{
+				"Folder": "Google",
+				"Placement": "toolbar",
+				"Title": "Google Drive",
+				"URL": "https://drive.google.com"
+			},
+			{
+				"Folder": "Google",
+				"Placement": "toolbar",
+				"Title": "Youtube",
+				"URL": "https://youtube.com"
+			}
+		],
+
+		"Cookies": {
+			"AcceptThirdParty": "never",
+			"Allow": [
+				"http://accounts.google.com/",
+				"https://accounts.google.com/",
+				"http://mail.google.com/",
+				"https://mail.google.com/"
+			],
+			"Default": false,
+			"ExpireAtSessionEnd": false,
+			"RejectTracker": true
+    },
+
+		"DefaultDownloadDirectory": "${home}/Downloads",
+		"DisableFirefoxStudies": true,
+		"DisableFormHistory": true,
+		"DisableMasterPasswordCreation": true,
+		"DisablePasswordReveal": true,
+		"DisablePocket": true,
+		"DisableTelemetry": true,
+		"DisplayBookmarksToolbar": true,
+
+		"EnableTrackingProtection": {
+			"Cryptomining": true,
+			"Fingerprinting": true,
+			"Value": true
+		},
+
+		"ExtensionSettings": {
+			"adguardadblocker@adguard.com": {
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi",
+				"installation_mode": "normal_installed"
+			},
+			"firefox@tampermonkey.net": {
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/tampermonkey/latest.xpi",
+				"installation_mode": "normal_installed"
+			},
+		},
+
+		"FirefoxHome": {
+			"Highlights": false,
+			"Pocket": false,
+			"Search": true,
+			"Snippets": false,
+			"SponsoredPocket": false,
+			"SponsoredTopSites": false,
+			"TopSites": false
+		},
+
+		"HardwareAcceleration": true,
+
+		"FlashPlugin": {
+			"Default": false
+		},
+
+		"NoDefaultBookmarks": true,
+		"OfferToSaveLogins": false,
+		"OverrideFirstRunPage": "",
+		"OverridePostUpdatePage": "",
+		"PasswordManagerEnabled": false,
+
+		"Preferences": {
+			"extensions.getAddons.showPane": false,
+			"media.gmp-gmpopenh264.enabled": true,
+			"media.gmp-widevinecdm.enabled": true
+		},
+
+		"RequestedLocales": [
+			"en-US",
+			"en-GB",
+			"fr-FR"
+		],
+
+		"SanitizeOnShutdown": {
+			"Cache": true,
+			"Cookies": false,
+			"Downloads": true,
+			"FormData": true,
+			"History": true,
+			"OfflineApps": false,
+			"Sessions": false,
+			"SiteSettings": false
+		},
+
+		"SearchBar": "unified"
+	}
+}
