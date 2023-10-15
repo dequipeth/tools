@@ -5,6 +5,7 @@
 
 
 ### Variables
+SCRIPT_DIR="$(dirname "$0")"
 ICONS_DIR="$HOME/.icons"
 
 mkdir -p "$ICONS_DIR"
@@ -16,15 +17,40 @@ mkdir -p "$ICONS_DIR"
 ###
 install_bibata() {
 
-	BIBATA_VERSION="$(curl -s https://api.github.com/repos/ful1e5/Bibata_Cursor/releases/latest | sed -n "s|^.*\"tag_name\": \"\(.*\)\",$|\1|p")"
+	local themes="Bibata-Original-Classic Bibata-Modern-Classic Bibata-Original-Ice Bibata-Modern-Ice"
+	local input_theme="$1"
+	local theme="Bibata-Original-Classic"
 
-	wget -qO "$ICONS_DIR/Bibata-Original-Classic.tar.xz" "https://github.com/ful1e5/Bibata_Cursor/releases/download/$BIBATA_VERSION/Bibata-Original-Classic.tar.xz"
-	tar -xf "$ICONS_DIR/Bibata-Original-Classic.tar.xz" -C "$ICONS_DIR"
-	rm -f "$ICONS_DIR/Bibata-Original-Classic.tar.xz"
-	mv "$ICONS_DIR/Bibata-Original-Classic" "$ICONS_DIR/bibata-original-classic"
+	local temp_file="$(mktemp)"
+	local temp_dir="$(mktemp -d)"
 
-	gsettings set org.gnome.desktop.interface cursor-theme bibata-original-classic
-	gsettings set org.gnome.desktop.interface cursor-size 24
+	local tag_name="$(curl -s "https://api.github.com/repos/ful1e5/Bibata_Cursor/releases/latest" | sed -n "s|^.*\"tag_name\":.*\"\(.*\)\".*$|\1|p")"
+	echo "The latest tag is $tag_name"
+
+	echo "Downloading theme"
+	wget -qO "$temp_file" \
+		"https://github.com/ful1e5/Bibata_Cursor/releases/download/${tag_name}/Bibata.tar.xz"
+	echo "Done"
+
+	echo "Extracting archive"
+	tar -xf "${temp_dir}/Bibata.tar.xz" -C "$temp_dir"
+	mv "${temp_dir}/Bibata-*" "$ICONS_DIR"
+	echo "Done"
+
+	for t in $themes; do
+		if [[ "$t" == "$input_theme" ]]; then
+			theme="$t"
+			break
+		fi
+	done
+	echo "Setting $theme theme"
+	gsettings set org.gnome.desktop.interface cursor-theme "$theme"
+	echo "Done"
+
+	echo "Removing temporary files"
+	rm -rf "$temp_dir"
+	rm -f "$temp_file"
+	echo "Done"
 }
 
 
@@ -33,8 +59,26 @@ install_bibata() {
 ###
 install_papirus() {
 
-	wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.icons" sh
+	local temp_file="$(mktemp)"
+	local temp_dir="$(mktemp -d)"
+
+	echo "Downloading icons theme"
+  wget -qO "$temp_file" \
+		"https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/master.tar.gz"
+
+  echo "Extracting archive"
+  tar -xzf "$temp_file" -C "$temp_dir"
+
+	if [[ -d "${temp_dir}/${repository}-${tag}/${theme}" ]]; then
+		echo "Installing icons theme"
+		
+	fi
 
 	gsettings set org.gnome.desktop.interface icon-theme papirus
+
+	echo "Removing temporary files"
+	rm -f "$temp_file"
+	rm -rf "$temp_dir"
+	echo "Done"
 }
 

@@ -168,3 +168,8 @@ install_obsidian() {
 	flatpak override --env OBSIDIAN_USE_WAYLAND=1 md.obsidian.Obsidian
 }
 
+### Install Vivaldi
+install_vivaldi() {
+	
+}
+
