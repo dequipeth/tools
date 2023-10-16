@@ -57,11 +57,15 @@ cyan_fg="$(rgb_fg "#00FFFF")"
 dark_cyan_fg="$(rgb_fg "#00AFAF")"
 darker_cyan_fg="$(rgb_fg "#009191")"
 
+grey_fg="$(rgb_fg "#C8C8C8")"
+dark_grey_fg="$(rgb_fg "#AFAFAF")"
+darker_grey_fg="$(rgb_fg "#919191")"
+
 white_fg="$(rgb_fg "#FFFFFF")"
 
 no_color="\[\033[0m\]"
 
-line_1="${dark_blue_fg}┌───( \u@\h )-[ \w ]"
+line_1="${blue_fg}┌───(${grey_fg} \u@\h ${blue_fg})-[${grey_fg} \w ${blue_fg}]"
 line_2="└─\$${no_color} "
 
 PS1="\r\n${line_1}\r\n${line_2}"
