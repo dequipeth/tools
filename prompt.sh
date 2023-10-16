@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 # Configures terminal prompt theme.
 #
 # Thomas DEQUIPE
@@ -8,7 +8,7 @@ script_dir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
 
 
 hex_to_rgb() {
-  
+
   hex="$(echo "$1" | sed 's/#//g')"
 
   r="$(echo "$hex" | cut -c-2)"
@@ -19,22 +19,49 @@ hex_to_rgb() {
   g="$(echo "ibase=16; $g" | bc)"
   b="$(echo "ibase=16; $b" | bc)"
 
-  echo $1
-  echo $r $g $b
+  printf "%d;%d;%d\n" "$r" "$g" "$b"
 }
 
+rgb_fg() {
+  printf "\[\033[38;2;$(hex_to_rgb "$1")m\]"
+}
 
-fg_black="\[\033[38;2;30m\]"
-fg_red="\[\033[38;2;31m\]"
-fg_green="\[\033[38;2;32m\]"
-fg_yellow="\[\033[38;2;33m\]"
-fg_blue="\[\033[38;2;34m\]"
-fg_magenta="\[\033[38;2;35m\]"
-fg_cyan="\[\033[38;2;36m\]"
-fg_white="\[\033[38;2;37m\]"
-fg_end="\[\033[00m\]"
+rgb_bg() {
+  printf "\[\033[48;2;$(hex_to_rgb "$1")m\]"
+}
 
-line_1="${fg_blue}┌───( \u@\h )-[ \w ]"
-line_2="└─\$${fg_end} "
+	
+black_fg="$(rgb_fg "#000000")"
+
+red_fg="$(rgb_fg "#FF0000")"
+dark_red_fg="$(rgb_fg "#AF0000")"
+darker_red_fg="$(rgb_fg "#910000")"
+
+green_fg="$(rgb_fg "#00FF00")"
+dark_green_fg="$(rgb_fg "#00AF00")"
+darker_green_fg="$(rgb_fg "#009100")"
+
+blue_fg="$(rgb_fg "#0000FF")"
+dark_blue_fg="$(rgb_fg "#0000AF")"
+darker_blue_fg="$(rgb_fg "#000091")"
+
+yellow_fg="$(rgb_fg "#FFFF00")"
+dark_yellow_fg="$(rgb_fg "#AFAF00")"
+darker_yellow_fg="$(rgb_fg "#919100")"
+
+magenta_fg="$(rgb_fg "#FF00FF")"
+dark_magenta_fg="$(rgb_fg "#AF00AF")"
+darker_magenta_fg="$(rgb_fg "#910091")"
+
+cyan_fg="$(rgb_fg "#00FFFF")"
+dark_cyan_fg="$(rgb_fg "#00AFAF")"
+darker_cyan_fg="$(rgb_fg "#009191")"
+
+white_fg="$(rgb_fg "#FFFFFF")"
+
+no_color="\[\033[0m\]"
+
+line_1="${dark_blue_fg}┌───( \u@\h )-[ \w ]"
+line_2="└─\$${no_color} "
 
 PS1="\r\n${line_1}\r\n${line_2}"
