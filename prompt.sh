@@ -1,6 +1,9 @@
 #!/bin/bash
 # Configures terminal prompt theme.
 #
+# https://github.com/gcholette/bash-ps1-themes
+# https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-bash-ps1-prompt
+#
 # Thomas DEQUIPE
 
 
@@ -63,9 +66,15 @@ darker_grey_fg="$(rgb_fg "#919191")"
 
 white_fg="$(rgb_fg "#FFFFFF")"
 
+light_blue_fg="$(rgb_fg "#005AFF")"
+
 no_color="\[\033[0m\]"
 
-line_1="${blue_fg}┌───(${grey_fg} \u@\h ${blue_fg})-[${grey_fg} \w ${blue_fg}]"
-line_2="└─\$${no_color} "
+bold="$(tput bold)"
+normal="$(tput sgr0)"
+
+
+line_1="${light_blue_fg}┌───${grey_fg} \u@\h ${light_blue_fg}──${grey_fg} \w ${light_blue_fg}"
+line_2="└─ \$${no_color} "
 
 PS1="\r\n${line_1}\r\n${line_2}"
