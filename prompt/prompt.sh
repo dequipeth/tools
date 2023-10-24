@@ -1,5 +1,5 @@
 #!/bin/bash
-# Configures terminal prompt theme.
+# Configures bash terminal prompt theme.
 #
 # https://github.com/gcholette/bash-ps1-themes
 # https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-bash-ps1-prompt
