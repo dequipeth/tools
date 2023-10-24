@@ -12,7 +12,14 @@ script_dir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
 . "$script_dir/colors.sh"
 
 
-line_1="${light_blue_fg}┌───${grey_fg} \u@\h ${light_blue_fg}──${grey_fg} \w ${light_blue_fg}"
-line_2="└─ \$${no_color} "
+BLUE="$(tput setaf 32)"
+GREY="$(tput setaf 247)"
+BOLD="$(tput bold)"
+RESET="$(tput sgr0)"
 
-PS1="\r\n${line_1}\r\n${line_2}"
+
+LINE_1="${BOLD}${BLUE}┌───${GREY} \u@\h ${BLUE}──${GREY} \w"
+LINE_2="${BLUE}│${GREY} $(short_datetime)"
+LINE_3="${BLUE}└─ \$${RESET} "
+
+PS1="\r\n${LINE_1}\r\n${LINE_2}\r\n${LINE_3}"
