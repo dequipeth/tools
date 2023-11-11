@@ -1,0 +1,12 @@
+### Sway configuration
+
+### Include
+
+include "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/variables.conf"
+include "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/key-bindings.conf"
+include "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/input.conf"
+include "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/output.conf"
+include "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/appearance.conf"
+
+include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
