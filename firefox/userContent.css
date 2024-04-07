@@ -1,53 +1,72 @@
-@document url("about:preferences") {
-
-  /* Hide application icons */
-  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .typeContainer .typeIcon {
-    display: none !important;
+/* Apply crisp rendering for favicons at exactly 2dppx resolution */
+@media (resolution: 2dppx) {
+  .tab-icon-image {
+    image-rendering: -moz-crisp-edges;
   }
+}
 
-  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .typeContainer .typeDescription {
-    margin-inline-start: 10px !important;
-  }
+/* Hide application icons */
+html#preferences-root body#preferences-body stack#preferences-stack hbox vbox.main-content vbox.pane-container vbox#mainPrefPane groupbox#applicationsGroup richlistbox#handlersView richlistitem hbox.typeContainer image.typeIcon {
+  display: none !important;
+}
 
-  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .actionContainer .actionIcon {
-    display: none !important;
-  }
+html#preferences-root body#preferences-body stack#preferences-stack hbox vbox.main-content vbox.pane-container vbox#mainPrefPane groupbox#applicationsGroup richlistbox#handlersView richlistitem hbox.typeContainer label.typeDescription {
+  margin-inline-start: 10px !important;
+}
 
-  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .actionContainer .actionDescription {
-    margin-inline-start: 10px !important;
-  }
+html#preferences-root body#preferences-body stack#preferences-stack hbox vbox.main-content vbox.pane-container vbox#mainPrefPane groupbox#applicationsGroup richlistbox#handlersView richlistitem hbox.actionContainer image.actionIcon {
+  display: none !important;
+}
 
-  #label-box image {
-    display: none !important;
-  }
+html#preferences-root body#preferences-body stack#preferences-stack hbox vbox.main-content vbox.pane-container vbox#mainPrefPane groupbox#applicationsGroup richlistbox#handlersView richlistitem hbox.actionContainer label.actionDescription {
+  margin-inline-start: 10px !important;
+}
 
-  #label-box label {
-    margin-inline-start: 10px !important;
-  }
+hbox#label-box image {
+  display: none !important;
+}
 
-  #preferences-root #preferences-body #preferences-stack #mainPrefPane #applicationsGroup #handlersView .actionsMenuContainer .actionsMenu .in-menulist .menu-iconic-left {
-    display: none !important;
-  }
+hbox#label-box label#label {
+  margin-inline-start: 10px !important;
+}
 
-  /* Hide search engines favicons */
-  #preferences-root #preferences-body #preferences-stack #mainPrefPane #defaultEngineGroup #defaultEngine .in-menulist .menuitem-iconic.searchengine-menuitem.menuitem-with-favicon .menu-iconic-left {
-    display: none !important;
-  }
+html#preferences-root body#preferences-body stack#preferences-stack hbox vbox.main-content vbox.pane-container vbox#mainPrefPane groupbox#applicationsGroup richlistbox#handlersView richlistitem hbox.actionsMenuContainer menulist.actionsMenu menupopup.in-menulist menuitem hbox.menu-iconic-left {
+  display: none !important;
+}
 
-  /* Hide download folder icon */
-  #preferences-root #preferences-body #preferences-stack #mainPrefPane #downloadsGroup #saveWhere #downloadFolder {
-    background-image: none !important;
-  }
+/* Hide search engines favicons */
+html#preferences-root body#preferences-body stack#preferences-stack hbox vbox.main-content vbox.pane-container vbox#mainPrefPane groupbox#defaultEngineGroup hbox menulist#defaultEngine menupopup.in-menulist menuitem.menuitem-iconic.searchengine-menuitem.menuitem-with-favicon hbox.menu-iconic-left {
+  display: none !important;
+}
 
-  /* Hide "More from Mozilla" */
-  #preferences-root #preferences-body #preferences-stack #categories #category-more-from-mozilla {
-    display: none !important;
-  }
+/* Hide download folder icon */
+html#preferences-root body#preferences-body stack#preferences-stack hbox vbox.main-content vbox.pane-container vbox#mainPrefPane groupbox#downloadsGroup hbox#saveWhere input#downloadFolder {
+  background-image: none !important;
+}
 
-  /* Hide help button */
-  #preferences-root #preferences-body #preferences-stack #helpButton {
-    display: none !important;
-  }
+/* Hide "More from Mozilla" */
+html#preferences-root body#preferences-body stack#preferences-stack hbox vbox.navigation richlistbox#categories richlistitem#category-more-from-mozilla.category {
+  display: none !important;
+}
 
+/* Hide recommendations */
+html body div#full div#content div#main discovery-pane recommended-addon-list {
+  display: none !important;
+}
+
+html body div#full div#content div#main recommended-extensions-section h2.header-name.recommended-heading {
+  display: none !important;
+}
+
+html body div#full div#content div#main recommended-extensions-section recommended-addon-list {
+  display: none !important;
+}
+
+html body div#full div#content div#main recommended-themes-section h2.header-name.recommended-heading {
+  display: none !important;
+}
+
+html body div#full div#content div#main recommended-themes-section recommended-addon-list {
+  display: none !important;
 }
 

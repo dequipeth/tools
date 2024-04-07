@@ -22,19 +22,19 @@ user_pref("ui.systemUsesDarkTheme ", 1);
 
 // Home page
 user_pref("browser.startup.homepage", "about:home");
+user_pref("browser.newtabpage.pinned", "[]");
 
 // Top sites
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
-user_pref("browser.newtabpage.pinned", "[]");
-user_pref("browser.topsites.blockedSponsors", "[\"amazon\",\"fr.hotels\"]");
+user_pref("browser.topsites.blockedSponsors", "[]");
 
 // Recent activity
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 
 // Snippets
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);

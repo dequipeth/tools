@@ -112,6 +112,29 @@ function configure_gnome() {
 }
 
 
+## Install KDE
+function install_kde() {
+
+  # Install X11
+  apt-get install xserver-xorg-video-all --no-install-recommends --assume-yes
+  apt-get install xserver-xorg-input-all --no-install-recommends --assume-yes
+  apt-get install xserver-xorg-core --no-install-recommends --assume-yes
+  apt-get install xinit --no-install-recommends --assume-yes
+  apt-get install x11-xserver-utils --no-install-recommends --assume-yes
+
+  # Install KDE
+  apt-get install plasma-desktop --no-install-recommends --assume-yes
+  apt-get install sddm --no-install-recommends --assume-yes
+  apt-get install plasma-nm --no-install-recommends --assume-yes
+  apt-get install konsole --no-install-recommends --assume-yes
+  apt-get install dolphin --no-install-recommends --assume-yes
+  apt-get install plasma-workspace-wayland --no-install-recommends --assume-yes
+
+  # Install full KDE DE
+  apt-get install kde-plasma-desktop -y
+}
+
+
 ## Configure theme
 # https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 ##
@@ -137,4 +160,3 @@ function configure_scaling() {
   gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
   gsettings set org.gnome.desktop.interface scaling-factor 1.5
 }
-
